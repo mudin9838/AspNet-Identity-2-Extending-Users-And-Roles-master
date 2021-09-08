@@ -1,0 +1,236 @@
+﻿@{
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "GridView";
+        settings.CallbackRouteValues = new { Controller = "Items", Action = "GridViewPartial" };
+
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Items", Action = "GridViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Items", Action = "GridViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Items", Action = "GridViewPartialDelete" };
+       
+      
+     
+        settings.SettingsPopup.EditForm.AllowResize = true;
+        settings.SettingsEditing.ShowModelErrorsForEditors = true;
+        settings.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.LeftSides;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+        settings.SettingsSearchPanel.Visible = true;
+
+        settings.KeyFieldName = "ItemId";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = true;
+        settings.Settings.ShowFilterRow = true;
+        settings.CommandColumn.ShowClearFilterButton = true;
+        settings.SettingsBehavior.AllowSelectByRowClick = true;
+
+        settings.SettingsAdaptivity.AdaptivityMode = GridViewAdaptivityMode.Off;
+        settings.SettingsAdaptivity.AdaptiveColumnPosition = GridViewAdaptiveColumnPosition.Right;
+        settings.SettingsAdaptivity.AdaptiveDetailColumnCount = 1;
+        settings.SettingsAdaptivity.AllowOnlyOneAdaptiveDetailExpanded = false;
+        settings.SettingsAdaptivity.HideDataCellsAtWindowInnerWidth = 0;
+
+
+        //settings.Columns.Add("ItemId");
+        //settings.Columns.Add("EmployeeName");
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "EmployeeName";
+           
+            c.Width = 130;
+
+        }); ;
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "Gender";
+            c.EditorProperties().ComboBox(cb =>
+            {
+
+
+                cb.Items.Add("Male");
+                cb.Items.Add("Female");
+                cb.DropDownStyle = DropDownStyle.DropDown;
+            });
+        });;
+        //settings.Columns.Add("Department");
+        //settings.Columns.Add("Position");
+        //settings.Columns.Add("Email");
+        //settings.Columns.Add("MobileNumber");
+        //settings.Columns.Add("OfficeNumber");
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "Department";
+            c.Caption = "yesra kfl";
+
+
+        }); ;
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "Position";
+            c.Caption = "yesra drsha";
+
+
+        }); ;
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "Email";
+
+
+        }); ;
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "MobileNumber";
+           
+
+
+        }); ;
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "OfficeNumber";
+           
+
+
+        }); ;
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "Region";
+           
+
+            c.EditorProperties().ComboBox(cb =>
+            {
+
+                cb.Items.Add("Addis Ababa");
+                cb.Items.Add("Dire Dawa");
+                cb.Items.Add("Afar");
+                cb.Items.Add("Mekele");
+                cb.Items.Add("Amhara");
+                cb.Items.Add("Gambella");
+                cb.Items.Add("Somali");
+                cb.Items.Add("Harari");
+                cb.Items.Add("Benshangul");
+
+            });
+        });
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "SubCity";
+           
+            c.EditorProperties().ComboBox(cb =>
+            {
+
+                cb.Items.Add("Gullele");
+                cb.Items.Add("Arada");
+                cb.Items.Add("Kirkos");
+                cb.Items.Add("Nifas Silk");
+                cb.Items.Add("Bole");
+                cb.Items.Add("Gambella");
+                cb.Items.Add("Akaky Kaliti");
+                cb.Items.Add("Kolfe Keranio[");
+                cb.Items.Add("Yeka");
+                cb.Items.Add("Lideta");
+                cb.Items.Add("Yeka");
+                cb.Items.Add("Addis Ketema");
+            });
+        });
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "Woreda";
+           
+            c.EditorProperties().ComboBox(cb =>
+            {
+
+                cb.Items.Add("01");
+                cb.Items.Add("02");
+                cb.Items.Add("03");
+                cb.Items.Add("04");
+                cb.Items.Add("05");
+                cb.Items.Add("06");
+                cb.Items.Add("07");
+                cb.Items.Add("07");
+                cb.Items.Add("08");
+                cb.Items.Add("09");
+                cb.Items.Add("10");
+                cb.Items.Add("11");
+                cb.Items.Add("12");
+                cb.Items.Add("13");
+                cb.Items.Add("14");
+            });
+        });
+        //settings.Columns.Add("HouseNumber");
+        //settings.Columns.Add("MaterialType");
+        //settings.Columns.Add("NumberOfMaterial");
+        //settings.Columns.Add("SerialNumber");
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "HouseNumber";
+           
+
+
+        }); ;
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "MaterialType";
+           
+
+
+        }); ;
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "NumberOfMaterial";
+
+
+
+        }); ;
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "SerialNumber";
+           
+
+
+        }); ;
+        settings.Columns.Add("DateTaken", MVCxGridViewColumnType.DateEdit);
+
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "Status";
+            
+
+            c.EditorProperties().ComboBox(cb =>
+            {
+
+                cb.Items.Add("Taken");
+                cb.Items.Add("Backed");
+            });
+            c.EditorProperties().TextBox(p =>
+            {
+                p.HelpText = "Kesewede taken ymretu  ketemelese demo backed yemilewn ymretu";
+                p.HelpText = "backed yemilewn kemeretu description yemilew box lay yetemelesebetn ken yasgebu";
+                p.HelpTextSettings.DisplayMode = HelpTextDisplayMode.Popup;
+
+
+            });
+        });
+        settings.Columns.Add(c =>
+        {
+            c.FieldName = "Description";
+            c.EditorProperties().TextBox(p =>
+            {
+                p.HelpText = "yetemelese kehone bcha yhn box ymulu";
+                p.HelpTextSettings.DisplayMode = HelpTextDisplayMode.Popup;
+
+
+            });
+
+
+        }); ;
+    });
+    if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

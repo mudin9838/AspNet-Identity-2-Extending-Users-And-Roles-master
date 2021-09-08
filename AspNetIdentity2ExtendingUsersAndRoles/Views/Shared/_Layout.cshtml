@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>@ViewBag.Title  | FixedAssesManagement</title>
+    @Html.DevExpress().GetStyleSheets(
+        new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Editors },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.GridView },
+        new StyleSheet { ExtensionSuite = ExtensionSuite.Dashboard }, new StyleSheet { ExtensionSuite = ExtensionSuite.QueryBuilder }
+
+    )
+    @Html.DevExpress().GetScripts(
+        new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout },
+        new Script { ExtensionSuite = ExtensionSuite.Editors },
+        new Script { ExtensionSuite = ExtensionSuite.GridView },
+        new Script { ExtensionSuite = ExtensionSuite.Dashboard }, new Script { ExtensionSuite = ExtensionSuite.QueryBuilder }
+
+    )
+    <link href="@Url.Content("~/Content/AdminLTE/adminlte.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Plugins/fontawesome-free/css/all.min.css")" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="hold-transition sidebar-mini">
+   
+    <div class="wrapper">
+
+        @Html.Partial("_NavBar")
+        @if (Request.IsAuthenticated)
+        {
+            @Html.Partial("_SideBar")
+
+        }
+
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+            <div class="p-3">
+                <h5>Title</h5>
+                <p>Sidebar content</p>
+            </div>
+        </aside>
+
+        <!-- /.control-sidebar -->
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- To the right -->
+            <div class="float-right d-none d-sm-inline">
+                contact us +251-920-13-51-89
+            </div>
+            <!-- Default to the left -->
+            <strong>Copyright &copy; 2021 <a href="#">MT IT solution team</a>.</strong> All rights reserved.
+        </footer>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    <script src="@Url.Content("~/Plugins/bootstrap/js/bootstrap.bundle.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/AdminLTE/adminlte.min.js")"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
